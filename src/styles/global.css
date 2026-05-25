@@ -1,0 +1,234 @@
+/* ============================================================
+   GP EconWatch — Global Design System
+   Designed for the Germination Project
+   ============================================================ */
+
+:root {
+  /* Color Palette — Deep forest civic green */
+  --forest-900: #051A10;
+  --forest-800: #0B3D2E;
+  --forest-700: #0E4D38;
+  --forest-600: #145C42;
+  --forest-500: #1A7A56;
+  --forest-400: #23A374;
+  --forest-300: #3DC48D;
+  --forest-200: #8ADBB6;
+  --forest-100: #C8F0DF;
+  --forest-50:  #F0FBF6;
+
+  --earth-900: #1C1208;
+  --earth-700: #5C3D1A;
+  --earth-500: #A06B33;
+  --earth-300: #D4A56A;
+  --earth-100: #F5E8D4;
+
+  --gold-500: #D4A017;
+  --gold-300: #F0C94B;
+  --gold-100: #FDF6DC;
+
+  --slate-900: #0D1117;
+  --slate-800: #161B22;
+  --slate-700: #21262D;
+  --slate-600: #30363D;
+  --slate-400: #6E7681;
+  --slate-200: #C9D1D9;
+  --slate-100: #E6EDF3;
+  --slate-50:  #F6F8FA;
+
+  --white: #FFFFFF;
+  --error: #CF222E;
+  --warning: #9A6700;
+  --success: #1A7F37;
+  --info: #0969DA;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', 'Courier New', monospace;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 32px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.08);
+  --shadow-green: 0 4px 20px rgba(26,122,86,0.25);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Layout */
+  --max-width: 1280px;
+  --sidebar-width: 320px;
+  --header-height: 72px;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--slate-900);
+  background-color: var(--slate-50);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Typography Scale ---- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--forest-800);
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.875rem); }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+p { line-height: 1.7; }
+
+a {
+  color: var(--forest-600);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition-fast);
+}
+a:hover { color: var(--forest-400); }
+
+/* ---- Focus Styles (Accessibility) ---- */
+:focus-visible {
+  outline: 3px solid var(--forest-400);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---- Utilities ---- */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.text-center { text-align: center; }
+.text-mono { font-family: var(--font-mono); }
+
+/* ---- Disclaimer Banner ---- */
+.disclaimer-banner {
+  background: linear-gradient(135deg, var(--gold-100), var(--earth-100));
+  border-left: 4px solid var(--gold-500);
+  padding: var(--space-3) var(--space-5);
+  font-size: 0.875rem;
+  color: var(--earth-700);
+  font-weight: 500;
+}
+
+/* ---- Badge Chip ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.badge-federal   { background: #DFE7FF; color: #3041A8; }
+.badge-state     { background: var(--forest-100); color: var(--forest-700); }
+.badge-county    { background: var(--earth-100); color: var(--earth-700); }
+.badge-nonprofit { background: #FFE8F0; color: #A01050; }
+.badge-likely    { background: #D4F4E4; color: #0E5C38; border: 1px solid var(--forest-300); }
+.badge-potential { background: var(--gold-100); color: #7A5500; border: 1px solid var(--gold-300); }
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--slate-100); }
+::-webkit-scrollbar-thumb { background: var(--forest-300); border-radius: var(--radius-full); }
+
+/* ---- Animations ---- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in-up  { animation: fadeInUp 0.5s ease forwards; }
+.animate-fade-in     { animation: fadeIn 0.4s ease forwards; }
+.animate-slide-right { animation: slideInRight 0.4s ease forwards; }
+
+/* ---- Skeleton Loading ---- */
+.skeleton {
+  background: linear-gradient(90deg, var(--slate-100) 25%, var(--slate-50) 50%, var(--slate-100) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ---- Print Styles ---- */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .container { max-width: 100%; padding: 0; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .container { padding: 0 var(--space-4); }
+}
